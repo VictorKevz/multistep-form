@@ -1,0 +1,62 @@
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white-100);
+}
+
+.inner-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: var(--white-300);
+}
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  gap: 0.6rem;
+  background: none;
+  cursor: pointer;
+}
+fieldset{
+  border: none;
+}
+/* DARK MODE...... */
+.main-bg-dark{
+  background-color: var(--black-100)!important;
+  transition: .3s ease-in-out;
+  color: var(--white-200);
+}
+.cards-bg-dark{
+  background-color: var(--black-200)!important;
+  transition: .3s ease-in-out;
+ 
+}
+.dark-gradient{
+  background: var(--dark-gradient)!important;
+  color: white !important;
+}
+.text-dark{
+  color: var(--white)!important;
+  opacity: .9;
+  transition: .3s ease-in-out;
+}
+.medium-text-dark{
+color: var(--white-200)!important;
+}
+.aside-dark{
+  background: var(--black-100)!important;
+}
+

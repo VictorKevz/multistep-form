@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root {
+  /* Light Mode */
+  --white:#fff;
+  --white-100:#E6E9F0;
+  --white-200:#B5B7C5; /* icons bg & text - dark mode */
+  --white-300:#69697C; /* fields bg */
+  --blue:#5952ddd4;
+  --red:#e36c6c;
+  --gradient:linear-gradient(to right, #8c52ff, #5ce1e6fe);
+  --gradient2:linear-gradient(to left, #5DE0E6, #004AAD);
+
+  /* Dark Mode */
+  --black-100:#25282E; /*Main bg,fields and theme */
+  --black-200:#1A1C20; /*cards bg */
+  --black-300:#0b0b0d;
+  --dark-gradient:linear-gradient(to right, #8c52ff96, #5ce1e687);
+
+
+  
+}
+*,::after,::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", serif;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Inter", serif;
+  width: 100%;
+
+}
+@media (max-width:820px) {
+  .nav-container{
+    border-bottom: none;
+  }
+  .links-wrapper{
+    flex-direction: column;
+    background: var(--white);
+    position: absolute;
+    top: 100%;
+    height: fit-content;
+    border-radius: 1.5rem;
+    padding: 4rem 3rem;
+    width: 100%;
+    display: none;
+  }
+.links-wrapper::before{
+  display: none;
+}
+
+.links-wrapper.open{
+  display: flex;
+}
+.sign-up {
+  height: 4.6rem;
+  padding: 0 2.5rem;
+
+}
+  .toggle-btn{
+    display: flex;
+  }
+  .mask.open{
+    display: block;
+  }
+}

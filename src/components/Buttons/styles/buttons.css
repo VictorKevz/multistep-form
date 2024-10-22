@@ -1,0 +1,18 @@
+.btn {
+    background: var(--gradient);
+    max-width: 120px;
+    width: 100%;
+    height: 4.5rem;
+    padding: 0 3rem;
+    border-radius: 2.8rem;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 500;
+    gap: .5rem;
+  }
+  .btn:hover{
+    border: 1px solid var(--blue);
+    background: none!important;
+    color: var(--black-200);
+    transition: .3s ease-in;
+  }
