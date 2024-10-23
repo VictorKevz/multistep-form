@@ -49,12 +49,10 @@
   top: 2.7rem;
 }
 .step1-btn-wrapper {
-  grid-column: span 2;
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  margin-top: 3rem;
-
+  margin-top: 4rem;
 }
 
 

@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import asideIMG from "../../assets/images/side-image.png";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
+
 import { DataContext, ThemeContext } from "../../App";
 import Step1 from "./Steps/Step1";
 import Alert from "@mui/material/Alert";
@@ -11,6 +9,7 @@ import "../../App.css";
 import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 import Step4 from "./Steps/Step4";
+import Step5 from "./Steps/Step5";
 
 function Contact() {
   const { isDark, setDark } = useContext(ThemeContext);
@@ -49,37 +48,6 @@ function Contact() {
   return (
     <section className="contact-container">
       <div className={`contact-wrapper ${isDark && "cards-bg-dark"}`}>
-        <aside className={`aside-wrapper ${isDark && "dark-gradient"}`}>
-          <div className="aside-text-wrapper">
-            <h1 className="title">Let's Connect!</h1>
-            <p className="parag">
-              Set up your account and choose packages in just a few steps.
-            </p>
-          </div>
-          <figure>
-            <img
-              src={asideIMG}
-              alt="Image of people answering a phone, illustrating customer service!"
-              className="aside-img"
-            />
-          </figure>
-          <div className={`theme-wrapper`}>
-            <button
-              type="button"
-              className={`theme-btn ${!isDark && "light"}`}
-              onClick={() => setDark(false)}
-            >
-              <LightModeIcon fontSize="large" /> Light
-            </button>
-            <button
-              type="button"
-              className={`theme-btn ${isDark && "dark"}`}
-              onClick={() => setDark(true)}
-            >
-              <DarkModeIcon fontSize="large" /> Dark
-            </button>
-          </div>
-        </aside>
         <article className={`form-wrapper ${isDark && "cards-bg-dark"}`}>
           <div className="steps-container">
             {steps.map((step) => {
@@ -118,7 +86,9 @@ function Contact() {
           {state.stepCount == 4 && (
             <Step4 handleValidation={handleValidation} />
           )}
+          
         </article>
+        
       </div>
       {state.showError && (
         <div className="error-badge">
@@ -132,7 +102,7 @@ function Contact() {
               color: "white",
               fontSize: "large",
             }}
-            onClose={() => dispatch({ type: "SHOW_ERROR" })}
+            onClose={() => dispatch({ type: "CLOSE_ERROR" })}
           >
             <span className="error-text">
               Please select at least one service!

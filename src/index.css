@@ -5,7 +5,8 @@
   --white-100:#E6E9F0;
   --white-200:#B5B7C5; /* icons bg & text - dark mode */
   --white-300:#69697C; /* fields bg */
-  --blue:#5952ddd4;
+  --white-400:#2F323E; /* fields bg */
+  --blue:#706aebd4;
   --red:#e36c6c;
   --gradient:linear-gradient(to right, #8c52ff, #5ce1e6fe);
   --gradient2:linear-gradient(to left, #5DE0E6, #004AAD);

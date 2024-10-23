@@ -1,0 +1,35 @@
+.step5-wrapper {
+    max-width: 750px;
+    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--white);
+  padding: 5rem 4rem;
+  border-radius: 1.5rem;
+  text-align: center;
+}
+.step5-icon {
+  width: 8rem;
+  height: auto;
+}
+.step5-title{
+    font-size: clamp(2rem,8vw,3.5rem);
+    margin-top: 1.5rem;
+    color: var(--black-200);
+}
+.step5-parag{
+    margin-top: 1rem;
+}
+.reset-btn{
+    margin-top: 4rem;
+    background: var(--gradient);
+    color: var(--white);
+    border-radius: 2.8rem;
+    width: fit-content;
+    height: 4.6rem;
+    padding: 0 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}

@@ -10,7 +10,7 @@ import NextButton from "../../Buttons/NextButton";
 
 function Step1() {
   const { state, dispatch } = useContext(DataContext);
-  const{isDark} = useContext(ThemeContext)
+  const { isDark } = useContext(ThemeContext);
   const fields = [
     {
       id: 1,
@@ -88,41 +88,49 @@ function Step1() {
     return isValid;
   };
 
-
   return (
-    <form className="step1 step-form-wrapper" autoComplete="off">
-      {fields.map((field) => {
-        const isLast = field.id === 5;
-        return (
-          <fieldset
-            key={field.id}
-            className={`field ${isLast && "last-field"}`}
-          >
-            <label className={`step1-label ${isDark && "text-dark"}`} htmlFor={field.id}>
-              {field.label}
-              <input
-                type="text"
-                id={field.id}
-                name={field.name}
-                value={field.value}
-                onChange={handleChange}
-                placeholder={field.placeholder}
-                className={`step1-input ${isDark && "main-bg-dark"}`}
-              />
-              <span className={`form-icon-wrapper ${isDark && "icon-wrapper-dark"}`}>
-                <field.icon className="form-icon" fontSize="large" />
-              </span>
-              {!state.step1.isValid[field.name] && (
-                <span className="error-message">{`Please provide a valid ${field.label}`}</span>
-              )}
-            </label>
-          </fieldset>
-        );
-      })}
+    <>
+      <form className="step-form-wrapper" autoComplete="off">
+        {fields.map((field) => {
+          const isLast = field.id === 5;
+          return (
+            <fieldset
+              key={field.id}
+              className={`field ${isLast && "last-field"}`}
+            >
+              <label
+                className={`step1-label ${isDark && "text-dark"}`}
+                htmlFor={field.id}
+              >
+                {field.label}
+                <input
+                  type="text"
+                  id={field.id}
+                  name={field.name}
+                  value={field.value}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  className={`step1-input ${isDark && "main-bg-dark"}`}
+                />
+                <span
+                  className={`form-icon-wrapper ${
+                    isDark && "icon-wrapper-dark"
+                  }`}
+                >
+                  <field.icon className="form-icon" fontSize="large" />
+                </span>
+                {!state.step1.isValid[field.name] && (
+                  <span className="error-message">{`Please provide a valid ${field.label}`}</span>
+                )}
+              </label>
+            </fieldset>
+          );
+        })}
+      </form>
       <div className="step1-btn-wrapper">
         <NextButton handleValidation={handleValidation} />
       </div>
-    </form>
+    </>
   );
 }
 

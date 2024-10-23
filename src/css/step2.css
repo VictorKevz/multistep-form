@@ -10,6 +10,7 @@
   gap: 5rem;
   margin-top: 4rem;
 }
+
 .service-btn {
   display: flex;
   flex-direction: column;
@@ -37,7 +38,7 @@
   display: flex;
   justify-content: space-between;
   gap: 3rem;
-  margin-top:15%;
+  margin-top:4rem;
 }
 
 

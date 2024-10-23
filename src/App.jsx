@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useReducer, useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
 import Contact from "./components/Contact/Contact";
+import AsideSection from "./components/Aside/Aside";
+import Step5 from "./components/Contact/Steps/Step5";
 
 export const ThemeContext = createContext();
 export const DataContext = createContext();
@@ -67,16 +68,45 @@ const reducer = (state, action) => {
         ...state,
         stepCount: state.stepCount - 1,
       };
-      case "DYNAMIC_STEP":
+    case "DYNAMIC_STEP":
+      return {
+        ...state,
+        stepCount: action.payload.step,
+      };
+    case "SHOW_ERROR":
+      return {
+        ...state,
+        showError: true,
+      };
+      case "CLOSE_ERROR":
         return {
           ...state,
-          stepCount: action.payload.step,
-        }; 
-      case "SHOW_ERROR" :
-        return{
-          ...state,
-          showError:!state.showError
-        }  
+          showError: false,
+        };
+      case "RESET_STATE":
+        return {
+          step1: {
+            firstName: "",
+            lastName: "",
+            phone: "",
+            company: "",
+            email: "",
+            isValid: {
+              firstName: true,
+              lastName: true,
+              phone: true,
+              company: true,
+              email: true,
+            },
+          },
+          step2: {
+            services: [],
+          },
+          step3: { monthlyBilling: true },
+          step4: {},
+          stepCount: 1,
+          showError: false,
+        };
     default:
       return state;
   }
@@ -108,7 +138,7 @@ function App() {
     step3: { monthlyBilling: true },
     step4: {},
     stepCount: 1,
-    showError:false
+    showError: false,
   };
   const savedState = localStorage.getItem("state");
   const currentState =
@@ -123,9 +153,10 @@ function App() {
     <ThemeContext.Provider value={{ isDark, setDark }}>
       <main className={`outer-container ${isDark && "main-bg-dark"}`}>
         <div className="inner-container">
-          {/* <Navbar /> */}
           <DataContext.Provider value={{ state, dispatch }}>
-            <Contact />
+            <AsideSection />
+
+            {state.stepCount == 5 ? <Step5 /> : <Contact />}
           </DataContext.Provider>
         </div>
       </main>

@@ -8,16 +8,16 @@ import "../../../css/step3.css";
 function Step3({handleValidation}) {
   const { state, dispatch } = useContext(DataContext);
   const { isDark } = useContext(ThemeContext);
-  
+  const serviceCount = state.step2?.services?.length;
   return (
     <div className="step3-wrapper">
-      <div className="step-3-service-wrapper">
-        {state.step2.services.map((service) => {
+      <div className={`step-3-service-wrapper`}>
+        {state.step2.services.map((service,index) => {
           return (
-            <div key={service.id} className="service-option">
+            <div key={service.id} className={`service-option ${serviceCount == 4 && index === 3 && "last-item"}`}>
               <h3 className={`service-name ${isDark && "text-dark"}`}>{service.label}</h3>
               
-              <ul className="features">
+              <ul className={`features ${serviceCount == 4 && index === 3 && "last-item-flex"}`}>
                 {service.features.map((feature, i) => (
                   <li key={i} className={`feature ${isDark && "medium-text-dark"}`}>
                     <CheckCircleIcon fontSize="large" className={`check-icon ${isDark && "icon-dark"}`} />{" "}

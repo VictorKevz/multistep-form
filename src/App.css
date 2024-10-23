@@ -1,6 +1,6 @@
 .outer-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   width: 100%;
@@ -12,9 +12,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  flex-direction: column;
   min-height: 100vh;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+  padding-right:3.5rem;
+  gap: 4rem;
 }
 p {
   font-size: 1.8rem;
@@ -38,6 +41,8 @@ fieldset{
   background-color: var(--black-100)!important;
   transition: .3s ease-in-out;
   color: var(--white-200);
+  border-color: var(--white-400)!important;
+
 }
 .cards-bg-dark{
   background-color: var(--black-200)!important;
@@ -45,8 +50,10 @@ fieldset{
  
 }
 .dark-gradient{
-  background: var(--dark-gradient)!important;
+  /* background: var(--dark-gradient)!important; */
   color: white !important;
+  /* background: var(--black-100)!important; */
+
 }
 .text-dark{
   color: var(--white)!important;
@@ -58,5 +65,8 @@ color: var(--white-200)!important;
 }
 .aside-dark{
   background: var(--black-100)!important;
+}
+.icon-wrapper-dark{
+  background-color: var(--white-400)!important;
 }
 

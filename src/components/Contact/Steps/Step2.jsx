@@ -56,8 +56,8 @@ function Step2({handleValidation}) {
       },
       features: [
         "Cloud Security ",
-        "Data Backup and Recovery",
-        "Cloud Infrastructure Management",
+        "Data Scalability",
+        "Cloud Apps",
       ],
     },
   ];
@@ -71,7 +71,7 @@ function Step2({handleValidation}) {
  
   return (
     <div className="step2-wrapper">
-      <div className="step-2-service-wrapper">
+      <div className={"step-2-service-wrapper"}>
         {services.map((service) => {
           const isSelected = state.step2.services.some(
             (obj) => obj.label === service.label
