@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
+
 import { DataContext, ThemeContext } from "../../../App";
 import PrevButton from "../../Buttons/PrevButton";
 import "../../../css/step4.css";
 import NextButton from "../../Buttons/NextButton";
+import { stepVariants } from "../../../variants";
 
 function Step4({handleValidation}) {
   const { state, dispatch } = useContext(DataContext);
@@ -22,9 +25,15 @@ function Step4({handleValidation}) {
 
  
   return (
-    <div className="step4-wrapper">
-      <div className={`step4-summary-wrapper ${isDark && "main-bg-dark"}`}>
-        <div className={`summary-header`}>
+    <motion.div 
+    className="step4-wrapper"
+    variants={stepVariants(state.direction)}
+    initial="hidden"
+    animate="visible"
+    key={isMonthly}
+    >
+      <div className={`step4-summary-wrapper ${isDark && "step4-summary-dark"}`}>
+        <div className={`summary-header ${isDark && "summary-header-dark"}`}>
         <h3 className={`billing-title ${isDark && "text-dark"}`}>{`Billing(${
           isMonthly ? "Monthly" : "Annually"
         })`}</h3>
@@ -67,7 +76,7 @@ function Step4({handleValidation}) {
         <NextButton handleValidation={handleValidation} />
 
       </div>
-    </div>
+    </motion.div>
   );
 }
 

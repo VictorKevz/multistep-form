@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { DataContext, ThemeContext } from "../../../App";
 
 import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
@@ -9,6 +11,7 @@ import AdsClickIcon from "@mui/icons-material/AdsClick";
 import "../../../css/step2.css";
 import PrevButton from "../../Buttons/PrevButton";
 import NextButton from "../../Buttons/NextButton";
+import { stepVariants } from "../../../variants";
 
 function Step2({handleValidation}) {
   const { state, dispatch } = useContext(DataContext);
@@ -70,7 +73,13 @@ function Step2({handleValidation}) {
   };
  
   return (
-    <div className="step2-wrapper">
+    <motion.div 
+    className="step2-wrapper"
+    variants={stepVariants(state.direction)}
+        initial="hidden"
+        animate="visible"
+        key={services}
+    >
       <div className={"step-2-service-wrapper"}>
         {services.map((service) => {
           const isSelected = state.step2.services.some(
@@ -79,7 +88,7 @@ function Step2({handleValidation}) {
           return (
             <button
               key={service.id}
-              className={`service-btn ${isSelected && "selected"} ${isDark && "text-dark"}`}
+              className={`service-btn ${isSelected && "selected"} ${isDark && "text-dark"} ${isDark && isSelected && "selected-dark"}`}
               onClick={() => selectService(service)}
             >
               <span className="step2-icon-wrapper">
@@ -94,7 +103,7 @@ function Step2({handleValidation}) {
         <PrevButton />
         <NextButton handleValidation={handleValidation} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

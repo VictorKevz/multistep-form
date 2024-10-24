@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
+
 import logo from "../../assets/images/logo.png";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { DataContext, ThemeContext } from "../../App";
 import "../../css/aside.css";
+import { cardsVariants } from "../../variants";
 
 function AsideSection() {
   const { isDark, setDark } = useContext(ThemeContext);
@@ -12,7 +15,15 @@ function AsideSection() {
   const serviceCount = state.step2?.services?.length;
 
   return (
-    <aside className={`aside-wrapper ${serviceCount === 4 && "overflow"} ${isDark && "aside-dark"}`}>
+    <motion.aside
+      className={`aside-wrapper ${serviceCount === 4 && "overflow"} ${
+        isDark && "aside-dark"
+      }`}
+      variants={cardsVariants}
+      initial="hidden"
+      animate="visible"
+      key={isDark}
+    >
       <figure>
         <img src={logo} alt="Company logo" className="logo" />
       </figure>
@@ -22,7 +33,6 @@ function AsideSection() {
           Set up your account and choose packages in just a few steps.
         </p>
       </div>
-      
       <div className={`theme-wrapper`}>
         <button
           type="button"
@@ -40,7 +50,7 @@ function AsideSection() {
         </button>
       </div>
       {isDark && <div className="overlay"></div>}{" "}
-    </aside>
+    </motion.aside>
   );
 }
 

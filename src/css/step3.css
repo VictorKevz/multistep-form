@@ -40,7 +40,8 @@
 }
 /* Conditional Class */
 .last-item-flex {
-  align-items: center;
+margin: 1.5rem auto 0 auto;
+width: fit-content;
 }
 .feature {
   display: flex;
@@ -86,6 +87,7 @@
   height: 3.6rem;
   border-radius: 3.2rem;
   color: var(--white-300);
+  font-weight: 600;
 }
 .monthly {
   background-color: var(--black-300);

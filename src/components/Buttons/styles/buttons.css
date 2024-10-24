@@ -16,3 +16,6 @@
     color: var(--black-200);
     transition: .3s ease-in;
   }
+  .dark-btn:hover{
+    color: var(--white-100);
+  }

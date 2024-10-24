@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { motion} from "framer-motion";
+
 
 import { DataContext, ThemeContext } from "../../App";
 import Step1 from "./Steps/Step1";
@@ -9,7 +11,7 @@ import "../../App.css";
 import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 import Step4 from "./Steps/Step4";
-import Step5 from "./Steps/Step5";
+import { cardsVariants } from "../../variants";
 
 function Contact() {
   const { isDark, setDark } = useContext(ThemeContext);
@@ -39,7 +41,7 @@ function Contact() {
   ];
   const handleValidation = () => {
     let isValid = false;
-    if (state.step2.services.length > 0) {
+    if (state.step2.services.length > 0 && Object.values(state.step1.isValid).every(Boolean)) {
       isValid = true;
     }
     return isValid;
@@ -47,7 +49,14 @@ function Contact() {
 
   return (
     <section className="contact-container">
-      <div className={`contact-wrapper ${isDark && "cards-bg-dark"}`}>
+      <motion.div 
+      className={`contact-wrapper ${isDark && "cards-bg-dark"}`}
+      variants={cardsVariants}
+      initial="hidden"
+      animate="visible"
+      key={isDark}
+      >
+     
         <article className={`form-wrapper ${isDark && "cards-bg-dark"}`}>
           <div className="steps-container">
             {steps.map((step) => {
@@ -68,7 +77,10 @@ function Contact() {
               );
             })}
           </div>
-          <div className="steps-header-text">
+          <div 
+          className="steps-header-text"
+          
+          >
             <h2 className={`step-header-title ${isDark && "text-dark"}`}>
               {stepsHeader[state.stepCount - 1]?.heading}
             </h2>
@@ -88,9 +100,7 @@ function Contact() {
           )}
           
         </article>
-        
-      </div>
-      {state.showError && (
+        {state.showError && (
         <div className="error-badge">
           <Alert
             variant="filled"
@@ -100,16 +110,18 @@ function Contact() {
               display: "flex",
               alignItems: "center",
               color: "white",
-              fontSize: "large",
             }}
+            className="alert"
             onClose={() => dispatch({ type: "CLOSE_ERROR" })}
           >
             <span className="error-text">
-              Please select at least one service!
+              Please fill out all fields in Step 1 and select at least one service in Step 2!
             </span>
           </Alert>
         </div>
       )}
+      </motion.div>
+      
     </section>
   );
 }

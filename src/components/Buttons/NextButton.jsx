@@ -13,12 +13,13 @@ function NextButton({ handleValidation }) {
       dispatch({ type: "INCREMENT_STEP" });
     } else {
      dispatch({type:"SHOW_ERROR"})
+     return;
     }
   };
   return (
     <button
       type="button"
-      className={`next-btn btn ${isDark && "dark-gradient"}`}
+      className={`next-btn btn ${isDark && "dark-btn"}`}
       onClick={handleSubmit}
     >
       {state.stepCount === 4 ? (

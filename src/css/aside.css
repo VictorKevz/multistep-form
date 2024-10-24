@@ -3,7 +3,6 @@
   width: 100%; 
   min-height: 100vh;
   height: auto;
-
   position: relative;
   top: 0;
   bottom: 0;
@@ -33,7 +32,7 @@
   margin-top: 3rem;
 }
 .title {
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: clamp(3.8rem, 8vw, 5rem);
   line-height: 1.25;
   color: var(--white);
   color: var(--black-200);
@@ -44,13 +43,7 @@
 
   margin-top: 1rem;
 }
-.aside-img {
-  width: 100%;
-  height: auto;
-  padding: 0 1px;
-  margin-top: 2.8rem;
-  display: none;
-}
+
 
 .theme-wrapper {
   margin-left: 3.6rem;
@@ -77,6 +70,8 @@
   border-radius: 3.2rem;
   color: white;
 }
+
+/* DARK MODE STYLES */
 .light {
   background-color: var(--white-100);
   transition: 0.3s ease-in-out;
@@ -89,4 +84,7 @@
   transition: 0.3s ease-in-out;
   transform: translateX(1rem);
   color: var(--white);
+}
+.aside-dark{
+  background: var(--black-400);
 }

@@ -8,7 +8,7 @@ function PrevButton() {
 
   return (
     <button type="button" 
-    className={`prev-btn btn ${isDark && "dark-gradient"}`}
+    className={`prev-btn btn ${isDark && "dark-btn"}`}
     onClick={()=>dispatch({type:"DECREMENT_STEP"})}
     >
        <KeyboardDoubleArrowLeft fontSize="large" /> Prev

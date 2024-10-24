@@ -63,3 +63,12 @@
     font-weight: 600;
 
 }
+.step4-summary-dark{
+    transition: .3s ease-in-out;
+    background-color: var(--black-400)!important;
+    color: var(--white-200);
+    border-color: inherit!important;
+  }
+  .summary-header-dark{
+    border-bottom: 1px solid rgb(50, 62, 85);
+  }

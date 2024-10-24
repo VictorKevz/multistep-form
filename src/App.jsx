@@ -62,11 +62,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         stepCount: state.stepCount + 1,
+        direction:"right"
+
       };
     case "DECREMENT_STEP":
       return {
         ...state,
         stepCount: state.stepCount - 1,
+        direction:"left"
       };
     case "DYNAMIC_STEP":
       return {
@@ -136,15 +139,14 @@ function App() {
       services: [],
     },
     step3: { monthlyBilling: true },
-    step4: {},
     stepCount: 1,
     showError: false,
+    direction:""
   };
   const savedState = localStorage.getItem("state");
   const currentState =
     savedState !== null ? JSON.parse(savedState) : initialState;
   const [state, dispatch] = useReducer(reducer, currentState);
-
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(isDark));
     localStorage.setItem("state", JSON.stringify(state));

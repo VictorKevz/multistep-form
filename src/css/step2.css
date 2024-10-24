@@ -44,5 +44,14 @@
 
 /* DARK MODE FOR STEP 2 */
 .selected{
-  border: 2px solid var(--blue);
+  border: 1px solid var(--blue);
+  background-color: var(--white-100);
+}
+.selected-dark{
+  background-color: var(--black-400)!important;
+  box-shadow: 0 0 2rem 1rem #0a4f7d24;
+
+}
+.service-btn:hover{
+  border-color: var(--blue);
 }

@@ -33,23 +33,42 @@ html {
 body {
   font-family: "Inter", serif;
   width: 100%;
+  overflow-x: hidden;
 
 }
-@media (max-width:1100px) {
+@media (width <= 1110px) {
+  .outer-container{
+    background: var(--white);
+  }
   .inner-container{
     flex-direction: column;
     padding-right: 0;
+    gap: 0;
+  }
+  .outer-bg-dark{
+    background: var(--black-400);
   }
   .aside-wrapper{
     max-width: 100%;
     width: 100%;
-    /* background-image: url("./assets/images/mobile-bg.png"); */
     min-height: 300px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 3rem 2.5rem;
-    gap:2rem
+    padding: 3rem 2.5rem 5rem 2.5rem;
+    gap:2rem;
+    background: url("./assets/images/light-bg.png");
+    background-repeat: no-repeat;
+    background-position:bottom right;
+    background-size: 290% 250%;
+    
+  }
+  
+  .aside-dark{
+    background-image: url("./assets/images/dark-bg.png");
+    background-repeat: no-repeat;
+    background-position:bottom left;
+    background-size: 260% 250%;
   }
   .logo,.theme-wrapper,.aside-text-wrapper {
     position: relative;
@@ -63,14 +82,52 @@ body {
     text-align: center;
     max-width:none;
     width: fit-content;
-    margin-top: 4rem;
+    margin-top: 3rem;
     align-items: center;
 
   }
   .theme-wrapper {
     background: var(--gradient);
   }
-  .overlay{
-    display: none;
+  
+}
+@media (max-width:760px) {
+  .contact-container {
+    padding: 0;
+    margin-top: 0;
   }
+  .contact-wrapper {
+    border-radius: 0;
+  }
+  
+/* ..........STEP 1,2,3 STYLES.............. */
+.step-form-wrapper,.step-2-service-wrapper,.step-3-service-wrapper {
+  grid-template-columns: 1fr;
+}
+.last-field,.last-item  {
+  grid-column: span 1;
+}
+
+/* ..........STEP 3 STYLES.............. */
+.service-option {
+  align-items: center;
+  text-align: center;
+}
+.features{
+  width: fit-content;
+  margin: 2rem auto 0 auto;
+  gap: .6rem;
+
+}
+.step5-wrapper{
+  border-radius: 0;
+}
+.alert{
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* flex-wrap: wrap; */
+}
+
 }

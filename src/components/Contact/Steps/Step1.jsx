@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 import PersonIcon from "@mui/icons-material/Person";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import BusinessIcon from "@mui/icons-material/Business";
@@ -7,6 +9,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { DataContext, ThemeContext } from "../../../App";
 import "../../../css/step1.css";
 import NextButton from "../../Buttons/NextButton";
+import { stepVariants } from "../../../variants";
 
 function Step1() {
   const { state, dispatch } = useContext(DataContext);
@@ -89,48 +92,54 @@ function Step1() {
   };
 
   return (
-    <>
-      <form className="step-form-wrapper" autoComplete="off">
-        {fields.map((field) => {
-          const isLast = field.id === 5;
-          return (
-            <fieldset
-              key={field.id}
-              className={`field ${isLast && "last-field"}`}
-            >
-              <label
-                className={`step1-label ${isDark && "text-dark"}`}
-                htmlFor={field.id}
+    <AnimatePresence mode="wait">
+      <motion.div
+        variants={stepVariants(state.direction)}
+        initial="hidden"
+        animate="visible"
+      >
+        <form className="step-form-wrapper" autoComplete="off">
+          {fields.map((field) => {
+            const isLast = field.id === 5;
+            return (
+              <fieldset
+                key={field.id}
+                className={`field ${isLast && "last-field"}`}
               >
-                {field.label}
-                <input
-                  type="text"
-                  id={field.id}
-                  name={field.name}
-                  value={field.value}
-                  onChange={handleChange}
-                  placeholder={field.placeholder}
-                  className={`step1-input ${isDark && "step1-input-dark"}`}
-                />
-                <span
-                  className={`form-icon-wrapper ${
-                    isDark && "icon-wrapper-dark"
-                  }`}
+                <label
+                  className={`step1-label ${isDark && "text-dark"}`}
+                  htmlFor={field.id}
                 >
-                  <field.icon className="form-icon" fontSize="large" />
-                </span>
-                {!state.step1.isValid[field.name] && (
-                  <span className="error-message">{`Please provide a valid ${field.label}`}</span>
-                )}
-              </label>
-            </fieldset>
-          );
-        })}
-      </form>
-      <div className="step1-btn-wrapper">
-        <NextButton handleValidation={handleValidation} />
-      </div>
-    </>
+                  {field.label}
+                  <input
+                    type="text"
+                    id={field.id}
+                    name={field.name}
+                    value={field.value}
+                    onChange={handleChange}
+                    placeholder={field.placeholder}
+                    className={`step1-input ${isDark && "step1-input-dark"}`}
+                  />
+                  <span
+                    className={`form-icon-wrapper ${
+                      isDark && "icon-wrapper-dark"
+                    }`}
+                  >
+                    <field.icon className="form-icon" fontSize="large" />
+                  </span>
+                  {!state.step1.isValid[field.name] && (
+                    <span className="error-message">{`Please provide a valid ${field.label}`}</span>
+                  )}
+                </label>
+              </fieldset>
+            );
+          })}
+        </form>
+        <div className="step1-btn-wrapper">
+          <NextButton handleValidation={handleValidation} />
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
