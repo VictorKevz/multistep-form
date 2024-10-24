@@ -151,7 +151,7 @@ function App() {
   }, [isDark, state]);
   return (
     <ThemeContext.Provider value={{ isDark, setDark }}>
-      <main className={`outer-container ${isDark && "main-bg-dark"}`}>
+      <main className={`outer-container ${isDark && "outer-bg-dark"}`}>
         <div className="inner-container">
           <DataContext.Provider value={{ state, dispatch }}>
             <AsideSection />

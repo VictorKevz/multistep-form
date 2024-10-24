@@ -31,7 +31,11 @@
   border: 1px solid var(--white-200);
   margin-top: .8rem;
 }
-
+.step1-input-dark{
+  border: 1px solid var(--black-400)!important;
+  background-color: inherit;
+  color: var(--white-100);
+}
 .last-field {
   grid-column: span 2;
 }
@@ -59,11 +63,11 @@
 
 .step1-input:focus{
   outline: none;
-  border-color: var(--blue);
+  border-color: var(--blue)!important;
 
 }
 .step1-input:hover{
-  border-color: var(--blue);
+  border-color: var(--blue)!important;
   cursor: pointer;
 }
 .error-message{

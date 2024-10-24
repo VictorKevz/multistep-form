@@ -6,14 +6,15 @@
 .step-3-service-wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  align-items: center;
   gap: 3rem;
   margin: 3rem auto 0 auto;
 }
 
 /* Conditional Class */
 .last-item {
-  grid-column: 1/span 3;
+  grid-column: 1 / span 3;
   display: grid;
   align-items: center;
 }
@@ -38,9 +39,8 @@
   margin-top: 1rem;
 }
 /* Conditional Class */
-.last-item-flex{
-    align-items: center;
-
+.last-item-flex {
+  align-items: center;
 }
 .feature {
   display: flex;

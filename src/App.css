@@ -5,7 +5,12 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: var(--white-100);
+  background-image: url("./assets/images/5.png");
+  background-position: top center;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 .inner-container {
@@ -37,24 +42,24 @@ fieldset{
   border: none;
 }
 /* DARK MODE...... */
-.main-bg-dark{
-  background-color: var(--black-100)!important;
+.outer-bg-dark{
+  background-image: url("./assets/images/6.png");
+}
+.steps-bg-dark{
   transition: .3s ease-in-out;
+  background-color: var(--black-400)!important;
+  box-shadow: 0 0 2rem 1rem #0a4f7d4f;
   color: var(--white-200);
-  border-color: var(--white-400)!important;
+  border-color: inherit!important;
 
 }
 .cards-bg-dark{
   background-color: var(--black-200)!important;
   transition: .3s ease-in-out;
+  color: var(--white);
  
 }
-.dark-gradient{
-  /* background: var(--dark-gradient)!important; */
-  color: white !important;
-  /* background: var(--black-100)!important; */
 
-}
 .text-dark{
   color: var(--white)!important;
   opacity: .9;
@@ -64,9 +69,9 @@ fieldset{
 color: var(--white-200)!important;
 }
 .aside-dark{
-  background: var(--black-100)!important;
+  background: var(--black-400)!important;
 }
 .icon-wrapper-dark{
-  background-color: var(--white-400)!important;
+  background-color: var(--black-400)!important;
 }
 

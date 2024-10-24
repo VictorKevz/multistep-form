@@ -13,8 +13,9 @@
 
   /* Dark Mode */
   --black-100:#25282E; /*Main bg,fields and theme */
-  --black-200:#1A1C20; /*cards bg */
+  --black-200:#021D2F; /*cards bg */
   --black-300:#0b0b0d;
+  --black-400:#09304a;
   --dark-gradient:linear-gradient(to right, #8c52ff96, #5ce1e687);
 
 
@@ -34,37 +35,42 @@ body {
   width: 100%;
 
 }
-@media (max-width:820px) {
-  .nav-container{
-    border-bottom: none;
-  }
-  .links-wrapper{
+@media (max-width:1100px) {
+  .inner-container{
     flex-direction: column;
-    background: var(--white);
-    position: absolute;
-    top: 100%;
-    height: fit-content;
-    border-radius: 1.5rem;
-    padding: 4rem 3rem;
+    padding-right: 0;
+  }
+  .aside-wrapper{
+    max-width: 100%;
     width: 100%;
+    /* background-image: url("./assets/images/mobile-bg.png"); */
+    min-height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2.5rem;
+    gap:2rem
+  }
+  .logo,.theme-wrapper,.aside-text-wrapper {
+    position: relative;
+    bottom: 0;
+    top: 0;
+    margin-left: 0;
+
+  }
+  
+  .aside-text-wrapper{
+    text-align: center;
+    max-width:none;
+    width: fit-content;
+    margin-top: 4rem;
+    align-items: center;
+
+  }
+  .theme-wrapper {
+    background: var(--gradient);
+  }
+  .overlay{
     display: none;
-  }
-.links-wrapper::before{
-  display: none;
-}
-
-.links-wrapper.open{
-  display: flex;
-}
-.sign-up {
-  height: 4.6rem;
-  padding: 0 2.5rem;
-
-}
-  .toggle-btn{
-    display: flex;
-  }
-  .mask.open{
-    display: block;
   }
 }

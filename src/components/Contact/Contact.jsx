@@ -57,7 +57,7 @@ function Contact() {
                   key={step}
                   type="button"
                   className={`step-btn ${isActive && "active"} ${
-                    isDark && "main-bg-dark"
+                    isDark && "steps-bg-dark"
                   }`}
                   onClick={() =>
                     dispatch({ type: "DYNAMIC_STEP", payload: { step: step } })

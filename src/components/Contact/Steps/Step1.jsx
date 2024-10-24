@@ -110,7 +110,7 @@ function Step1() {
                   value={field.value}
                   onChange={handleChange}
                   placeholder={field.placeholder}
-                  className={`step1-input ${isDark && "main-bg-dark"}`}
+                  className={`step1-input ${isDark && "step1-input-dark"}`}
                 />
                 <span
                   className={`form-icon-wrapper ${

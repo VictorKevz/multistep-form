@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import logo from "../../assets/images/logo.png";
-import asideIMG from "../../assets/images/side-image.png";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { DataContext, ThemeContext } from "../../App";
@@ -13,23 +12,17 @@ function AsideSection() {
   const serviceCount = state.step2?.services?.length;
 
   return (
-    <aside className={`aside-wrapper ${serviceCount === 4 && "overflow"}`}>
+    <aside className={`aside-wrapper ${serviceCount === 4 && "overflow"} ${isDark && "aside-dark"}`}>
       <figure>
         <img src={logo} alt="Company logo" className="logo" />
       </figure>
       <div className="aside-text-wrapper">
-        <h1 className="title">Let's Connect!</h1>
-        <p className="parag">
+        <h1 className={`title ${isDark && "text-dark"}`}>Let's Connect!</h1>
+        <p className={`parag ${isDark && "medium-text-dark"}`}>
           Set up your account and choose packages in just a few steps.
         </p>
       </div>
-      <figure>
-        <img
-          src={asideIMG}
-          alt="Image of people answering a phone, illustrating customer service!"
-          className="aside-img"
-        />
-      </figure>
+      
       <div className={`theme-wrapper`}>
         <button
           type="button"

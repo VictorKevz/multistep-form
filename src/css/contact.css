@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: 4rem;
+  padding: 4rem 2.5rem;
 }
 .contact-wrapper {
   width: 100%;
@@ -16,6 +16,7 @@
   position: relative;
   padding: 3.5rem 4rem;
   background-color: var(--white);
+  box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .fields-dark {
