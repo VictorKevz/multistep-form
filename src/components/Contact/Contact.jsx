@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { motion} from "framer-motion";
 
 
 import { DataContext, ThemeContext } from "../../App";
@@ -11,7 +10,6 @@ import "../../App.css";
 import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 import Step4 from "./Steps/Step4";
-import { cardsVariants } from "../../variants";
 
 function Contact() {
   const { isDark } = useContext(ThemeContext);
@@ -48,13 +46,12 @@ function Contact() {
   };
 
   return (
+    
     <section className="contact-container">
-      <motion.div 
+      <div 
       className={`contact-wrapper ${isDark && "cards-bg-dark"}`}
-      variants={cardsVariants}
-      initial="hidden"
-      animate="visible"
-      key={isDark}
+      
+      
       >
      
         <article className={`form-wrapper ${isDark && "cards-bg-dark"}`}>
@@ -126,9 +123,10 @@ function Contact() {
           </Alert>
         </div>
       )}
-      </motion.div>
+      </div>
       
     </section>
+   
   );
 }
 

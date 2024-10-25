@@ -13,7 +13,7 @@ export const stepVariants = (direction) => ({
         }
     },
     exit:{
-     x:direction === "left" ? -20:20,
+     x:direction === "left" ? -50:50,
      opacity:0,
      transition:{
         duration:0.3
@@ -25,6 +25,7 @@ export const stepVariants = (direction) => ({
         hidden:{
             opacity:0,
             x:-50,
+            transition: { duration: 0.4 },
         },
         visible:{
             x:0,
@@ -32,8 +33,9 @@ export const stepVariants = (direction) => ({
             transition:{
                 type:"tween",
                 ease:"easeInOut",
-                duration:0.8,
-                delay:0.1
+                duration:0.6,
             }
         },
     }
+
+    

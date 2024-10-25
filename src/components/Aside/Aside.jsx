@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { motion } from "framer-motion";
+import { motion,AnimatePresence } from "framer-motion";
 
 import logo from "../../assets/images/logo.png";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -15,6 +15,7 @@ function AsideSection() {
   const serviceCount = state.step2?.services?.length;
 
   return (
+    <AnimatePresence mode="wait">
     <motion.aside
       className={`aside-wrapper ${serviceCount === 4 && "overflow"} ${
         isDark && "aside-dark"
@@ -60,6 +61,7 @@ function AsideSection() {
       </div>
       {isDark && <div className="overlay"></div>}
     </motion.aside>
+    </AnimatePresence>
   );
 }
 

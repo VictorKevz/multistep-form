@@ -15,7 +15,7 @@ function Step5() {
     variants={cardsVariants}
     initial="hidden"
     animate="visible"
-    key={isDark}
+    // key={isDark}
     role="document" 
   >
     <img
