@@ -36,6 +36,17 @@ body {
   overflow-x: hidden;
 
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 @media (width <= 1110px) {
   .outer-container{
     background: var(--white);
@@ -44,6 +55,7 @@ body {
     flex-direction: column;
     padding-right: 0;
     gap: 0;
+
   }
   .outer-bg-dark{
     background: var(--black-400);
@@ -89,15 +101,21 @@ body {
   .theme-wrapper {
     background: var(--gradient);
   }
-  
+  .step5-wrapper {
+    margin-bottom: 5rem;
+  } 
 }
 @media (max-width:760px) {
+  .inner-container{
+    padding-bottom: 0;
+  }
   .contact-container {
     padding: 0;
     margin-top: 0;
   }
-  .contact-wrapper {
+  .contact-wrapper,.step5-wrapper {
     border-radius: 0;
+    margin-top: 0;
   }
   
 /* ..........STEP 1,2,3 STYLES.............. */
@@ -121,13 +139,14 @@ body {
 }
 .step5-wrapper{
   border-radius: 0;
+  margin-bottom: 0;
+
 }
 .alert{
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* flex-wrap: wrap; */
+  
 }
 
 }

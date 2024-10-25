@@ -43,6 +43,7 @@ function Step4({handleValidation}) {
           onClick={() =>
             dispatch({ type: "DYNAMIC_STEP", payload: { step: 2 } })
           }
+          aria-label="Change billing plan"
         >
           Change
         </button>

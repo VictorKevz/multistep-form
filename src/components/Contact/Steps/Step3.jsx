@@ -21,6 +21,10 @@ function Step3({ handleValidation }) {
       key={serviceCount}
     >
       <div className={`step-3-service-wrapper`}>
+        <h2 className="visually-hidden">
+          Step 3: Review Selected Services and Pricing
+        </h2>
+
         {state.step2.services.map((service, index) => {
           return (
             <div
@@ -73,6 +77,8 @@ function Step3({ handleValidation }) {
           onClick={() =>
             dispatch({ type: "SET_BILLING", payload: { currentBilling: true } })
           }
+          aria-pressed={state.step3.monthlyBilling}
+          aria-label="View Monthly Billing"
         >
           Monthly
         </button>
@@ -85,6 +91,8 @@ function Step3({ handleValidation }) {
               payload: { currentBilling: false },
             })
           }
+          aria-pressed={!state.step3.monthlyBilling}
+          aria-label="View Yearly Billing"
         >
           Yearly
         </button>

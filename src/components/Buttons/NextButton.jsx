@@ -18,18 +18,19 @@ function NextButton({ handleValidation }) {
   };
   return (
     <button
-      type="button"
-      className={`next-btn btn ${isDark && "dark-btn"}`}
-      onClick={handleSubmit}
-    >
-      {state.stepCount === 4 ? (
-        "Confirm"
-      ) : (
-        <>
-          Next <KeyboardDoubleArrowRightIcon fontSize="large" />
-        </>
-      )}
-    </button>
+    type="button"
+    className={`next-btn btn ${isDark && "dark-btn"}`}
+    onClick={handleSubmit}
+    aria-label={state.stepCount === 4 ? "Confirm subscription" : "Go to the next step"}
+  >
+    {state.stepCount === 4 ? (
+      "Confirm"
+    ) : (
+      <>
+        Next <KeyboardDoubleArrowRightIcon fontSize="large" />
+      </>
+    )}
+  </button>
   );
 }
 

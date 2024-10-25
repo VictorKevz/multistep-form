@@ -13,10 +13,9 @@ import PrevButton from "../../Buttons/PrevButton";
 import NextButton from "../../Buttons/NextButton";
 import { stepVariants } from "../../../variants";
 
-function Step2({handleValidation}) {
+function Step2({ handleValidation }) {
   const { state, dispatch } = useContext(DataContext);
-  const{isDark} = useContext(ThemeContext)
-
+  const { isDark } = useContext(ThemeContext);
 
   const services = [
     {
@@ -57,11 +56,7 @@ function Step2({handleValidation}) {
         monthly: 15,
         yearly: 162,
       },
-      features: [
-        "Cloud Security ",
-        "Data Scalability",
-        "Cloud Apps",
-      ],
+      features: ["Cloud Security ", "Data Scalability", "Cloud Apps"],
     },
   ];
 
@@ -71,16 +66,23 @@ function Step2({handleValidation}) {
       payload: { currentService: currentService },
     });
   };
- 
+
   return (
-    <motion.div 
-    className="step2-wrapper"
-    variants={stepVariants(state.direction)}
-        initial="hidden"
-        animate="visible"
-        key={services}
+    <motion.div
+      className="step2-wrapper"
+      variants={stepVariants(state.direction)}
+      initial="hidden"
+      animate="visible"
+      key={services}
     >
-      <div className={"step-2-service-wrapper"}>
+      <div
+        className={"step-2-service-wrapper"}
+        role="group"
+        aria-labelledby="service-selection"
+      >
+        <h2 id="service-selection" className="visually-hidden">
+          Step 2: Select Services
+        </h2>
         {services.map((service) => {
           const isSelected = state.step2.services.some(
             (obj) => obj.label === service.label
@@ -88,8 +90,12 @@ function Step2({handleValidation}) {
           return (
             <button
               key={service.id}
-              className={`service-btn ${isSelected && "selected"} ${isDark && "text-dark"} ${isDark && isSelected && "selected-dark"}`}
+              className={`service-btn ${isSelected && "selected"} ${
+                isDark && "text-dark"
+              } ${isDark && isSelected && "selected-dark"}`}
               onClick={() => selectService(service)}
+              aria-pressed={isSelected}
+              aria-label={`Select ${service.label} service`}
             >
               <span className="step2-icon-wrapper">
                 <service.icon className="form-icon" fontSize="large" />

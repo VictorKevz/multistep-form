@@ -98,7 +98,15 @@ function Step1() {
         initial="hidden"
         animate="visible"
       >
-        <form className="step-form-wrapper" autoComplete="off">
+        <form
+          className="step-form-wrapper"
+          autoComplete="off"
+          aria-labelledby="step1-title"
+        >
+          <h2 id="step1-title" className="visually-hidden">
+            Step 1: Contact Information
+          </h2>
+
           {fields.map((field) => {
             const isLast = field.id === 5;
             return (
@@ -119,6 +127,8 @@ function Step1() {
                     onChange={handleChange}
                     placeholder={field.placeholder}
                     className={`step1-input ${isDark && "step1-input-dark"}`}
+                    aria-invalid={!state.step1.isValid[field.name]}
+                    aria-describedby={`${field.id}-error`}
                   />
                   <span
                     className={`form-icon-wrapper ${
@@ -128,7 +138,10 @@ function Step1() {
                     <field.icon className="form-icon" fontSize="large" />
                   </span>
                   {!state.step1.isValid[field.name] && (
-                    <span className="error-message">{`Please provide a valid ${field.label}`}</span>
+                    <span
+                      className="error-message"
+                      role="alert"
+                    >{`Please provide a valid ${field.label}`}</span>
                   )}
                 </label>
               </fieldset>

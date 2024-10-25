@@ -23,21 +23,29 @@ function AsideSection() {
       initial="hidden"
       animate="visible"
       key={isDark}
+      aria-labelledby="aside-title"
     >
       <figure>
-        <img src={logo} alt="Company logo" className="logo" />
+        <img 
+          src={logo} 
+          alt="Company logo representing Company Name" 
+          className="logo" 
+        />
       </figure>
       <div className="aside-text-wrapper">
-        <h1 className={`title ${isDark && "text-dark"}`}>Let's Connect!</h1>
+        <h1 id="aside-title" className={`title ${isDark && "text-dark"}`}>
+          Let's Connect!
+        </h1>
         <p className={`parag ${isDark && "medium-text-dark"}`}>
           Set up your account and choose packages in just a few steps.
         </p>
       </div>
-      <div className={`theme-wrapper`}>
+      <div className="theme-wrapper">
         <button
           type="button"
           className={`theme-btn ${!isDark && "light"}`}
           onClick={() => setDark(false)}
+          aria-label="Switch to light theme"
         >
           <LightModeIcon fontSize="large" /> Light
         </button>
@@ -45,11 +53,12 @@ function AsideSection() {
           type="button"
           className={`theme-btn ${isDark && "dark"}`}
           onClick={() => setDark(true)}
+          aria-label="Switch to dark theme"
         >
           <DarkModeIcon fontSize="large" /> Dark
         </button>
       </div>
-      {isDark && <div className="overlay"></div>}{" "}
+      {isDark && <div className="overlay"></div>}
     </motion.aside>
   );
 }

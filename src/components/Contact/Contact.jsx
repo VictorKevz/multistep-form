@@ -14,7 +14,7 @@ import Step4 from "./Steps/Step4";
 import { cardsVariants } from "../../variants";
 
 function Contact() {
-  const { isDark, setDark } = useContext(ThemeContext);
+  const { isDark } = useContext(ThemeContext);
   const { state, dispatch } = useContext(DataContext);
   const steps = [1, 2, 3, 4];
   const stepsHeader = [
@@ -65,6 +65,10 @@ function Contact() {
                 <button
                   key={step}
                   type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls={`step${step}-panel`}
+                  id={`step${step}-tab`}
                   className={`step-btn ${isActive && "active"} ${
                     isDark && "steps-bg-dark"
                   }`}
@@ -79,7 +83,9 @@ function Contact() {
           </div>
           <div 
           className="steps-header-text"
-          
+          id={`step${state?.stepCount}-panel`}
+            role="tabpanel"
+            aria-labelledby={`step${state?.stepCount}-tab`}
           >
             <h2 className={`step-header-title ${isDark && "text-dark"}`}>
               {stepsHeader[state.stepCount - 1]?.heading}
@@ -101,7 +107,7 @@ function Contact() {
           
         </article>
         {state.showError && (
-        <div className="error-badge">
+        <div className="error-badge" role="alert" aria-live="assertive">
           <Alert
             variant="filled"
             severity="error"
