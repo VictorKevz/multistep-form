@@ -1,7 +1,6 @@
 
 # Multi-Step Form
-![alt text](public/design/light.png)
-
+![alt text](public/screenshots/light.png)
 A modern, fully responsive multi-step form that guides users through a seamless subscription process. The application utilizes React and various hooks to provide an intuitive and engaging user experience.
 
 ## Live Demo
